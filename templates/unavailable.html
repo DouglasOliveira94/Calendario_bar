@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Indisponível</title>
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo do conteúdo */
+            color: #ffffff; /* Cor do texto branco */
+            font-family: Arial, sans-serif;
+            text-align: center; /* Centralizar todo o texto */
+            margin: 0;
+            padding: 0;
+        }
+        .red-box {
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(50, 50, 50, 0.9); /* Cor de fundo do conteúdo cinza escuro com transparência */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ffffff; /* Borda branca */
+        }
+        .red-box h1 {
+            margin-top: 0;
+            color: #ffffff; /* Cor do texto branco */
+        }
+        .red-box p {
+            margin-bottom: 20px;
+            color: #ffffff; /* Cor do texto branco */
+        }
+        .red-box button {
+            padding: 10px 20px;
+            background-color: #dc3545; /* Cor de fundo vermelha */
+            color: #ffffff; /* Cor do texto branco */
+            border: none;
+            border-radius: 5px; /* Borda arredondada */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Transição suave da cor de fundo */
+        }
+        .red-box button:hover {
+            background-color: #c82333; /* Cor de fundo vermelha mais escura ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="red-box">
+        <h1>Agendar Jogo contra o time Bar de Munique</h1>
+        <p>A data selecionada ({{ selected_date }}) não está mais disponível. Por favor, escolha outra data.</p>
+        <button onclick="window.location.href='/';">Voltar</button>
+    </div>
+</body>
+</html>

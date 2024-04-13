@@ -1,0 +1,42 @@
+/* Estilos CSS */
+body {
+    background-image: url("{{ url_for('static', filename='time.jpeg') }}"); /* Imagem de fundo */
+    background-size: contain; /* Tamanho original */
+    background-repeat: no-repeat; /* Evitar repetição */
+    background-position: center; /* Centralizar a imagem */
+    font-family: Arial, sans-serif;
+    text-align: center; /* Centralizar todo o texto */
+    margin: 0;
+    padding: 0;
+}
+
+.red-box {
+    background-color: red;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 400px;
+    text-align: center;
+    border: 2px solid #dc3545; /* Borda vermelha */
+}
+
+.container {
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo do conteúdo */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #dc3545; /* Borda vermelha */
+}
+
+#datepicker-container {
+    margin-top: 20px;
+}
+
+#datepicker {
+    width: 100%;
+    box-sizing: border-box;
+}

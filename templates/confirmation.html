@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Agendamento</title>
+    <style>
+        body {
+            background-image: url({{ url_for('static', filename='time.jpeg') }});
+            background-size: contain;
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo do conteúdo */
+            color: #ffffff; /* Cor do texto branco */
+            font-family: Arial, sans-serif;
+            text-align: center; /* Centralizar todo o texto */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo para o link de voltar */
+        .back-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(255, 68, 68, 0.7); /* Cor de fundo vermelha mais escura com transparência */
+            color: #ffffff; /* Cor do texto branco */
+            text-decoration: none; /* Remover sublinhado */
+            border-radius: 5px; /* Borda arredondada */
+            transition: background-color 0.3s; /* Transição suave da cor de fundo */
+        }
+
+        /* Estilo para o link de voltar quando passa o mouse */
+        .back-link:hover {
+            background-color: rgba(255, 102, 102, 0.7); /* Cor de fundo vermelha mais clara com transparência */
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: rgba(50, 50, 50, 0.7); /* Cor de fundo do conteúdo cinza escuro com transparência */ padding: 20px; border-radius: 8px; max-width: 400px; margin: 20px auto;">
+        <h1>Confirmação de Agendamento</h1>
+        <p>O agendamento para o time <strong>{{ team_name }}</strong> foi confirmado para o dia <strong>{{ selected_date }}</strong>, o valor do jogo é R$ 37,50</p>
+        <p>Dois dias antes do jogo entraremos em contato com o numero registrado para confirmar a presença do time adversário.
+.</p>
+        <p>Qualquer dúvida, mande mensagem no WhatsApp para </p>
+        <a href="/" class="back-link">Voltar à página inicial</a>
+    </div>
+</body>
+</html>

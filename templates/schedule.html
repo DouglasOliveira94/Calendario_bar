@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Jogo</title>
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo do conteúdo */
+            color: #ffffff; /* Cor do texto branco */
+            font-family: Arial, sans-serif;
+            text-align: center; /* Centraliza todo o texto */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo do conteúdo */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="tel"],
+        form input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #dc3545;
+            border-radius: 4px;
+        }
+        form input[type="submit"] {
+            background-color: #dc3545;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form input[type="submit"]:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Agendar Jogo</h1>
+        <h2>Data selecionada: {{ selected_date }}</h2>
+        <p>Por favor, insira o nome do seu time, email e número para contato</p>
+        <form action="/submit" method="post">
+            <input type="text" name="team_name" placeholder="Nome do Time" required><br><br>
+            <input type="email" name="email" placeholder="Endereço de E-mail" required><br><br>
+            <input type="tel" name="phone" placeholder="Digite seu telefone" required><br><br>
+            <input type="hidden" name="selected_date" value="{{ selected_date }}">
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>

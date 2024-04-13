@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Jogo contra o Bar de Munique</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/i18n/jquery-ui-i18n.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+body {
+    background-image: url("{{ url_for('static', filename='time.jpeg') }}"); /* Imagem de fundo */
+    background-repeat: repeat; /* Repetir a imagem */
+    color: #ffffff; /* Cor do texto */
+    font-family: Arial, sans-serif;
+    text-align: center; /* Centralizar todo o texto */
+    margin: 0;
+    padding: 0;
+}
+        .container {
+            width: 80%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo do conteúdo */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ffffff; /* Borda vermelha */
+        }
+        #datepicker-container {
+            margin-top: 20px;
+        }
+        #datepicker {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Agendar Jogo contra o time Bar de Munique</h1>
+        <h4>Os jogos são as Quintas-Feiras no ginásio municipal de Osório as 21h</h4>
+    </div>
+    <div id="datepicker-container" class="container">
+        <label for="datepicker">Escolha uma data:</label>
+        <input type="text" id="datepicker" name="datepicker">
+    </div>
+    <script>
+        $(function() {
+            $("#datepicker").datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: new Date(),
+                beforeShowDay: function(date) {
+                    return [date.getDay() == 4, ""];
+                },
+                onSelect: function(dateText) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/schedule',
+                        data: { selected_date: dateText },
+                        success: function(response) {
+                            $('body').html(response);
+                        }
+                    });
+                },
+                monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                dayNames: ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'],
+                dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+                dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
+            });
+        });
+    </script>
+</body>
+</html>
