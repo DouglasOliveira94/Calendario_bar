@@ -1,1 +1,1 @@
-app web feito para agendamento de horarios
+App web feito com Flask, para agendamento de horarios do time Bar de Munique, ao finalizar de cadastrar um jogo, sera enviado um email para o email cadastrado do usuario e um do time para eles saberem que foi marcado um jogo, APP V1.0
